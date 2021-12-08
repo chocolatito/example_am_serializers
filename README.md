@@ -1,24 +1,28 @@
-# README
+# Basic API with Ruby on Rails 6 - Returning JSON Data
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> __BASED ON THE VIDEO: [Create a Basic API with Ruby on Rails - Part 1 - Returning JSON Data](https://youtu.be/3S9fyfmCf1A)__
 
-Things you may want to cover:
+---
+```sh
+$ rails new example_am_serializers --api
+$ cd example_am_serializers
+$ rails g scaffold Band name
+$ rails db:migrate
+```
+- - -
+```sh
+$ rails g model Member band:references name
+$ rails db:migrate
+```
 
-* Ruby version
+> in /Gemafile ++
+```ruby
+# https://rubygems.org/gems/active_model_serializers/versions/0.10.2?locale=es
+gem 'active_model_serializers', '~> 0.10.2'
+```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```sh
+$ bundle
+$ rails g serializer band
+$ rails g serializer member
+```
